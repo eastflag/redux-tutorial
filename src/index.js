@@ -5,10 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {combineReducers, createStore} from 'redux';
 import {Provider} from "react-redux";
-
-const productReducer = (state = [], action) => {
-  return state;
-}
+import {productReducer} from "./redux/reducers/product";
 
 const userReducer = (state = '', action) => {
   switch(action.type) {
