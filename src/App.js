@@ -1,26 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {productReducer} from "./redux/reducers/product";
+import {userReducer} from "./redux/reducers/user";
+import {connect} from "react-redux";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>{props.aaa}</p>
+      <p>{props.user}</p>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  // props: state
+  aaa: state.productReducer,
+  user: state.userReducer
+});
+
+// 커링 펑션
+// HoC 컴포넌트
+export default connect(mapStateToProps)(App);
