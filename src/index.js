@@ -8,22 +8,8 @@ import {Provider} from "react-redux";
 // 1) 먼저 매핑되는 화일을 정확하게 찾기
 // 2) 해당되는 폴더의 index.js를 찾기
 import {allReducer} from "./redux/reducers";
-
-const updateUser = {
-  type: 'updateUser',
-  payload: {
-    user: 'Tom'
-  }
-};
-
-const store = createStore(allReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
-console.log(store);
-
-store.subscribe(() => console.log('subscriber: ', store.getState()));
-
-store.dispatch(updateUser);
+import {updateUser} from "./redux/actions";
+import {store} from "./redux/store";
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 
