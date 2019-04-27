@@ -3,23 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {combineReducers, createStore} from 'redux';
+import {createStore} from 'redux';
 import {Provider} from "react-redux";
-import {productReducer} from "./redux/reducers/product";
-
-const userReducer = (state = '', action) => {
-  switch(action.type) {
-    case 'updateUser':
-      return action.payload.user;
-    default:
-      return state;
-  }
-}
-
-const allReducer = combineReducers({
-  productReducer,
-  userReducer
-})
+// 1) 먼저 매핑되는 화일을 정확하게 찾기
+// 2) 해당되는 폴더의 index.js를 찾기
+import {allReducer} from "./redux/reducers";
 
 const updateUser = {
   type: 'updateUser',
