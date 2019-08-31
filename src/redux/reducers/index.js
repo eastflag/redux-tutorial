@@ -3,6 +3,6 @@ import {productReducer} from "./product";
 import {userReducer} from "./user";
 
 export const allReducer = combineReducers({
-  productReducer,
-  userReducer
+  products: productReducer,
+  user: userReducer
 })
