@@ -1,8 +1,8 @@
 import {combineReducers} from "redux";
-import {productReducer} from "./product";
-import {userReducer} from "./user";
+import {userReducer} from "./userReducer";
+import {counterReducer} from "./counterReducer";
 
 export const allReducer = combineReducers({
-  products: productReducer,
+  count: counterReducer,
   user: userReducer
 })

@@ -1,18 +1,20 @@
 import React from 'react';
 import './App.css';
-import {updateUser} from "./redux/actions";
 import {useSelector, useDispatch} from 'react-redux';
+import {decreaseCount, increaseCount} from "./redux/reducers/counterReducer";
+import Counter from "./component/Counter";
+import {updateUser} from "./redux/reducers/userReducer";
+import User from "./component/User";
 
 function App() {
-  const products = useSelector(state => state.products);
+  const count = useSelector(state => state.count);
   const user = useSelector(state => state.user);
   const dispatch = useDispatch();
 
   return (
     <div className="App">
-      <p>{products.length}</p>
-      <p>{user}</p>
-      <button onClick={() => dispatch(updateUser('Jane'))}>액션 디스패치</button>
+      <Counter count={count} onIncrease={() => dispatch(increaseCount())} onDecrease={() => dispatch(decreaseCount())}></Counter>
+      <User name={user.name} updateUser={(name) => dispatch(updateUser(name))}></User>
     </div>
   );
 }
